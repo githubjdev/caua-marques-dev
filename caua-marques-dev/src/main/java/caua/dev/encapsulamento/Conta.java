@@ -19,26 +19,37 @@ public class Conta {
 			throw new Exception("Valor do depósito inválido");
 		}
 
-		return saldo += valor;
+		setSaldo(saldo += valor);
+		return getSaldo();
 
 	}
 
-	public double getSaldo() {
+	public double getSaldo() throws Exception {
+		
+		if (saldo < 0) {
+			 throw new Exception("Saldo não pode ser negativo");
+		 }
+		
 		return saldo;
 	}
 
 	public void setSaldo(double saldo) throws Exception {
-
+		 
+		if (saldo < 0) {
+			 throw new Exception("Saldo não pode ser negativo");
+		 }
+		 
 		this.saldo = saldo;
 	}
 
 	public double sacar(double valor) throws Exception {
-		
-		if (valor > saldo) {
+
+		if (valor > getSaldo()) {
 			throw new Exception("Saldo insuficiente");
 		}
 
-		return saldo -= valor;
+		setSaldo(saldo -= valor);
+		return getSaldo();
 	}
 
 }
