@@ -1,16 +1,14 @@
 package caua.dev.collections;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 public class Ex6 {
 
 	public static void main(String[] args) {
 
 		List<Object[]> objects = new ArrayList<Object[]>();
-		Set<Produto> produtos = new HashSet<Produto>();
+		List<Produto> produtos = new ArrayList<Produto>();
 
 		objects.add(new Object[] { "Teclado", 10, 150.00, true, "Asus" });
 		objects.add(new Object[] { "Mouse", 15, 50.00, true, "Logi" });
