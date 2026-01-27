@@ -20,22 +20,22 @@ public class Ex6 {
 
 			System.out.println("----------------------------------");
 
+			Produto produto = null;
 			for (int i = 0; i < obj.length; i++) {
 				String nomeProd = (String) obj[0];
-				double estoqueProd = Double.parseDouble("" +obj[1]);
+				double estoqueProd = Double.parseDouble("" + obj[1]);
 				double valorProd = (Double) obj[2];
 				boolean ativoProd = (Boolean) obj[3];
 				String marcaProd = (String) obj[4];
-				
-				Produto produto = new Produto(nomeProd, marcaProd, ativoProd, valorProd, estoqueProd);
-				produtos.add(produto);
+
+				produto = new Produto(nomeProd, marcaProd, ativoProd, valorProd, estoqueProd);
 			}
+			produtos.add(produto);
 
 		}
-		
-		
+
 		for (Produto produto : produtos) {
-		   System.out.println(produto.toString());
+			System.out.println(produto.toString());
 		}
 
 	}
