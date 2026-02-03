@@ -10,6 +10,17 @@ public class Produto {
 	boolean ativoProd;
 	double valorProd;
 	double estoqueProd;
+	
+	
+	
+
+	public Produto(String nome, String categoria, boolean ativoProd, double valor) {
+		super();
+		this.nome = nome;
+		this.categoria = categoria;
+		this.ativoProd = ativoProd;
+		this.valorProd = valor;
+	}
 
 	public Produto(String nome, String categoria) {
 		super();
@@ -50,7 +61,7 @@ public class Produto {
 		this.marca = marca;
 	}
 
-	public boolean isAtivoProd() {
+	public boolean getAtivoProd() {
 		return ativoProd;
 	}
 
