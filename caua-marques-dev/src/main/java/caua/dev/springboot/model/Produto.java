@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -28,6 +29,12 @@ public class Produto {
 	@Min(value = 10, message = "Quantidade míniuma de estoque é 10")
 	@Column(nullable = false)
 	private String quantidade;
+
+	
+	@Transient /*Para não gerar coluna na tabela*/
+	public boolean alertaEstoqueBaixo() {
+		return Integer.parseInt(quantidade) < 10;
+	}
 
 	public Long getId() {
 		return id;
