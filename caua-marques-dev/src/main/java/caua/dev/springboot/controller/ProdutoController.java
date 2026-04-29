@@ -114,5 +114,12 @@ public class ProdutoController {
 		
 		return ResponseEntity.ok(texto);
 	}
+	
+	@GetMapping("/listaPaginada/{page}/{size}")
+	public ResponseEntity<List<Produto>> listaPaginada(@PathVariable(value = "page") int page,
+													  @PathVariable(value = "size") int size){
+		
+		return ResponseEntity.ok(produtoService.listaPaginada(page, size));
+	}
 
 }

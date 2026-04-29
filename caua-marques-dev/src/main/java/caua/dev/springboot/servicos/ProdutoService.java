@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import caua.dev.springboot.model.Produto;
@@ -41,6 +43,11 @@ public class ProdutoService {
 	
 	public Optional<Produto> buscarIdOptional(Long id) {
 		return produtoRepository.findById(id);
+	}
+	
+	
+	public List<Produto> listaPaginada(int page, int size){
+		return produtoRepository.findAll(PageRequest.of(page, size, Sort.by("nome"))).getContent();
 	}
 
 	public Boolean alertaEstoque(Long idProduto) {
