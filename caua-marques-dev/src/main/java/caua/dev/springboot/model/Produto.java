@@ -31,11 +31,21 @@ public class Produto {
 	@Min(value = 10, message = "Quantidade míniuma de estoque é 10")
 	@Column(nullable = false)
 	private String quantidade;
+	
+	private boolean ativo;
 
 	
 	@Transient /*Para não gerar coluna na tabela*/
 	public boolean alertaEstoqueBaixo() {
 		return Integer.parseInt(quantidade) < 10;
+	}
+	
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+	
+	public boolean getAtivo() {
+		return ativo;
 	}
 
 	public Long getId() {
